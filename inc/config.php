@@ -13,6 +13,7 @@
 	define("IMG_EQUIP_PATH", "/img/equips/icon/");
 	define("IMG_MAP_PATH", "/img/maps/minimap/");
 	define("LOCAL_PATH", "/");
+	define("REMOTE_PATH", "http://www.mapleroad.com.br/");
 	
 	//Instancia a classe responsável pela conexão com o banco
 		function tempoExecucao($start = null) {

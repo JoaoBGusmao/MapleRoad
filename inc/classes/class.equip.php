@@ -71,8 +71,11 @@
 		  }
 		}
 
-		public function getCachedIcon() {
-			$path = IMG_EQUIP_PATH;
+		public function getCachedIcon($fullUrl = false) {
+			$path = "";
+			if($fullUrl) $path .= REMOTE_PATH;
+			$path .= IMG_EQUIP_PATH;
+			
 			if($this->getUrl() == "") {
 				if(file_exists("{$_SERVER['DOCUMENT_ROOT']}/".IMG_EQUIP_PATH.$this->getItemid().".png")) {
 					return $path.$this->getItemid().".png";
@@ -88,12 +91,13 @@
 			}
 		}
 		
-		public function getSingleLink() {
-			$localPath = LOCAL_PATH;
+		public function getSingleLink($fullUrl = false) {
+			if($fullUrl) $path = REMOTE_PATH;
+			else $path = LOCAL_PATH;
 			if($this->getUrl() == "") {
-				return $localPath."equipamento/".$this->getItemid();
+				return $path."equipamento/".$this->getItemid();
 			} else {
-				return $localPath."equipamento/".$this->getUrl();
+				return $path."equipamento/".$this->getUrl();
 			}
 		}
 		public function getIslot() {

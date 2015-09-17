@@ -523,6 +523,26 @@
 			}
 			return $resColumn;
 		}
+		
+		public function getEquipsById($ids) {
+			$b = connection::getInstance()->prepare("SELECT * FROM equips WHERE itemid IN ($ids) ORDER BY FIELD(itemid, $ids)");
+			$b->execute();
+			$resColumn = $b->fetchAll();
+			if($resColumn == null) {
+				throw new Exception('NOT_FOUND');
+			}
+			return $resColumn;
+		}
+		
+		public function getItemsById($ids) {
+			$b = connection::getInstance()->prepare("SELECT * FROM items WHERE itemid IN ($ids) ORDER BY FIELD(itemid, $ids)");
+			$b->execute();
+			$resColumn = $b->fetchAll();
+			if($resColumn == null) {
+				throw new Exception('NOT_FOUND');
+			}
+			return $resColumn;
+		}
 	}
 	
 ?>

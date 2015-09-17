@@ -39,7 +39,7 @@
 		}
 
 		function __construct($itemid,$fields=false,$preQuery = false) {
-			if(empty($itemid)) throw new Exception('NOT_FOUND');
+			//if(empty($itemid)) throw new Exception('NOT_FOUND');
 			
 			if($preQuery == false) {
 				$this->getFromDB($itemid,$fields);
@@ -71,8 +71,10 @@
 		  }
 		}
 		
-		public function getCachedIcon() {
-			$path = IMG_ITEM_PATH;
+		public function getCachedIcon($fullUrl = false) {
+			$path = "";
+			if($fullUrl) $path .= REMOTE_PATH;
+			$path .= IMG_ITEM_PATH;
 			if($this->getUrl() == "") {
 				if(file_exists("{$_SERVER['DOCUMENT_ROOT']}/".IMG_ITEM_PATH.$this->getItemid().".png")) {
 					return $path.$this->getItemid().".png";
@@ -88,12 +90,13 @@
 			}
 		}
 		
-		public function getSingleLink() {
-			$localPath = LOCAL_PATH;
+		public function getSingleLink($fullUrl = false) {
+			if($fullUrl) $path = REMOTE_PATH;
+			else $path = LOCAL_PATH;
 			if($this->getUrl() == "") {
-				return $localPath."item/".$this->getItemid();
+				return $path."item/".$this->getItemid();
 			} else {
-				return $localPath."item/".$this->getUrl();
+				return $path."item/".$this->getUrl();
 			}
 		}
 		public function getCash() {
