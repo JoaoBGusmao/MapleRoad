@@ -1,0 +1,19 @@
+{
+  "name": "mapleroad",
+  "version": "1.0.0",
+  "description": "MapleStory Database System",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JoaoBGusmao/MapleRoad.git"
+  },
+  "author": "joaobgusmao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoaoBGusmao/MapleRoad/issues"
+  },
+  "homepage": "https://github.com/JoaoBGusmao/MapleRoad"
+}
